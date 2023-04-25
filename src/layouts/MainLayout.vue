@@ -34,14 +34,14 @@
                             <li><a>社区</a></li>
                             <li><a>支持</a></li>
                         </ul>
-                        <a class="btn btn-primary btn-sm lg:btn-md mr-3">
+                        <button class="btn btn-primary btn-outline btn-sm lg:btn-md mr-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 pr-3" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
                                     d="M20 12L4 12M12 4L12 20" />
                             </svg>
                             新建
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <router-view />
@@ -52,7 +52,7 @@
                     <li class="pb-5 disabled">
                         <div class="flex flex-row">
                             <div class="flex-1 self-center">
-                                <img src="./../assets/vue.svg" />
+                                <img src="./../assets/talkpal-icon.svg" class="h-12 w-12"/>
                             </div>
                             <div class="flex-none">
                                 <button class="btn btn-square btn-ghost border-0">
@@ -162,7 +162,7 @@
                         <div class="flex-auto ml-7">
                             <div class="font-semibold text-base-content">
                                 {{ user.name }}
-                                <div class="badge badge-primary" v-if="user.vip">VIP</div>
+                                <div class="badge badge-primary badge-md" v-if="user.vip">VIP</div>
                             </div>
                             <div class="mt-0.5 text-opacity-50">{{ user.description }}</div>
                         </div>

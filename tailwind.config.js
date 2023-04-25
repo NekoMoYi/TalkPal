@@ -4,6 +4,16 @@ export default {
     "index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}"
   ],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          primary: "#ea7600",
+        }
+      }
+    ]
+  },
   theme: {
     extend: {},
   },
