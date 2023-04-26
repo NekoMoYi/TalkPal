@@ -3,45 +3,48 @@
         <div class="drawer drawer-mobile bg-base-100">
             <input id="side-drawer" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content flex-col items-center justify-center">
-                <div class="navbar border-b-gray-300 border-opacity-20 bg-base-100 border-b-2 text-base-content">
-                    <div class="flex-none lg:hidden">
-                        <label for="side-drawer" class="btn btn-square btn-ghost drawer-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                class="inline-block w-5 h-5 stroke-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16">
-                                </path>
-                            </svg>
-                        </label>
-                    </div>
-                    <div class="flex-1 pl-6 py-3">
-                        <div class="relative rounded-md hidden lg:flex ">
-                            <input type="text" placeholder="搜索" class="pl-10 input input-bordered w-96 text-base-content" />
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="flex-none text-slate-300 dark:text-slate-400" aria-hidden="true">
-                                    <path d="m19 19-3.5-3.5"></path>
-                                    <circle cx="11" cy="11" r="6"></circle>
+                <div class=" sticky top-0 z-30 flex w-full justify-center">
+                    <div class="navbar w-full text-base-content shadow-sm bg-base-100">
+                        <div class="flex-none lg:hidden">
+                            <label for="side-drawer" class="btn btn-square btn-ghost drawer-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    class="inline-block w-5 h-5 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h16">
+                                    </path>
                                 </svg>
+                            </label>
+                        </div>
+                        <div class="flex-1 pl-6 py-3">
+                            <div class="relative rounded-md hidden lg:flex ">
+                                <input type="text" placeholder="搜索"
+                                    class="pl-10 input input-bordered w-96 text-base-content" />
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="flex-none text-slate-300 dark:text-slate-400" aria-hidden="true">
+                                        <path d="m19 19-3.5-3.5"></path>
+                                        <circle cx="11" cy="11" r="6"></circle>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="flex-none">
-                        <ul class="menu menu-horizontal px-5 hidden lg:flex">
-                            <li><a>文档</a></li>
-                            <li><a>社区</a></li>
-                            <li><a>支持</a></li>
-                        </ul>
-                        <button class="btn btn-primary btn-outline btn-sm lg:btn-md mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 pr-3" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                    d="M20 12L4 12M12 4L12 20" />
-                            </svg>
-                            新建
-                        </button>
+                        <div class="flex-none">
+                            <ul class="menu menu-horizontal px-5 hidden lg:flex">
+                                <li><a>文档</a></li>
+                                <li><a>社区</a></li>
+                                <li><a>支持</a></li>
+                            </ul>
+                            <button class="btn btn-primary btn-outline btn-sm lg:btn-md mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 pr-3" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M20 12L4 12M12 4L12 20" />
+                                </svg>
+                                新建
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <router-view />
@@ -51,8 +54,8 @@
                 <ul class="flex flex-col menu p-4 w-72 text-base-content font-medium text-opacity-60 bg-base-200">
                     <li class="pb-5 disabled">
                         <div class="flex flex-row">
-                            <div class="flex-1 self-center">
-                                <img src="./../assets/talkpal-icon.svg" class="h-12 w-12"/>
+                            <div class="flex-1 self-center cursor-pointer">
+                                <img src="./../assets/talkpal-icon.svg" class="h-12 w-12" @click="goHome" />
                             </div>
                             <div class="flex-none">
                                 <button class="btn btn-square btn-ghost border-0">
@@ -141,7 +144,7 @@
                     </li>
                     <li class="opacity-0"></li>
                     <li class="opacity-0"></li>
-                    <li class="menu-title"><span>我的助手</span></li>
+                    <li class="menu-title"><span>常用助手</span></li>
                     <li v-for="assistant in myAssistants">
                         <a>
                             <div class="avatar placeholder">
@@ -200,6 +203,9 @@ export default {
         }
     },
     methods: {
+        goHome(){
+            this.$router.push("/")
+        }
     }
 }
 </script>
