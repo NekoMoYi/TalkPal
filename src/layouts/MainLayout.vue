@@ -71,7 +71,7 @@
                     </li>
                     <li class="menu-title"><span>导航</span></li>
                     <li>
-                        <a>
+                        <a @click="routerPush('/')" :class="isActiveRoute('/')">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path
@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li>
-                        <a>
+                        <a @click="routerPush('/characters/create')" :class="isActiveRoute('/characters/create')">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="9" r="5" />
@@ -180,10 +180,11 @@
 export default {
     data() {
         return {
+            activeRoute: "/",
             user: {
                 name: "用户名",
                 description: "付费用户",
-                avatar: "https://picsum.photos/id/1005/200/200",
+                avatar: "/src/assets/avatars/27.png",
                 vip: true
             },
             myAssistants: [
@@ -203,8 +204,19 @@ export default {
         }
     },
     methods: {
-        goHome(){
+        goHome() {
             this.$router.push("/")
+        },
+        isActiveRoute(route) {
+            return this.activeRoute === route ? 'active' : ''
+        },
+        routerPush(route) {
+            this.$router.push(route)
+        }
+    },
+    watch: {
+        '$route.path'(newVal) {
+            this.activeRoute = newVal
         }
     }
 }
